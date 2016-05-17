@@ -1,0 +1,30 @@
+body {
+	position:relative;
+}
+
+
+
+#container {
+
+	display:flex; 
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+
+#container img {
+	padding:2px;
+}
+button {
+	position:relative;
+	height:200px;
+	width:400px;
+	margin: 0 auto;
+	border:1px dotted blue;
+}
+
+
+
+.hidden {
+	display:none;
+}
