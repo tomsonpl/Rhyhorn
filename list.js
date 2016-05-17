@@ -11,31 +11,29 @@
 	
 	let rhyhorn = () => {
 		if (checked != true){
-		let div, frag, img, colors, rand;
+		let div, frag, img, colors, dims;
 	
 		frag = document.createDocumentFragment();
 
   
 	    div = document.createElement("div");
 	    div.setAttribute("id", "container")
-
-	    for(let i=1; i<99; i++){
-			colors= [];
-		    for (let i=1; i<99;i++){
-				colors.push(Math.floor(Math.random()*900000) + 100000);
-			}
-		rand = colors[Math.floor(Math.random() * colors.length)];
-    		
+		
+		dims = Math.floor(screen.height/5);
+	    for(let i=1; i<50; i++){
+		colors= (Math.floor(Math.random()*900000) + 100000);	
 	    img = document.createElement("img");
-	    img.src = "http://placeskull.com/150/150/" + rand + "/" + i;
+	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + i;
 	    div.appendChild(img);
 	  	frag.appendChild(div);
      	document.body.appendChild(frag);
+		console.log(dims);
 
 	   }}
 
 	    button.className="hidden";
      	return checked = true;
+
 
  
  }
@@ -43,7 +41,6 @@
 
 	 document.querySelector("button").addEventListener("click", rhyhorn);
 	
-
 
 
      })();
