@@ -1,48 +1,69 @@
 "use strict";
 
-(function(){
-	const vm = this;
-	let button = document.createElement("button");
-	button.setAttribute("id", "clicker");
+(function () {
+	let button,
+		rhyhorn,
+		doMagic,
+		addImages,
+		div,
+		i,
+		n,
+		frag,
+		img,
+		colors,
+		dims,
+		randNum,
+		boxSize;
 
+	button = document.createElement("button");
+	button.setAttribute("id", "clicker");
 	document.body.appendChild(button);
 	console.log(button);
-	let checked = false;
-	
-	let rhyhorn = () => {
-		if (checked != true){
-		let div, frag, img, colors, dims;
-	
-		frag = document.createDocumentFragment();
 
-  
-	    div = document.createElement("div");
-	    div.setAttribute("id", "container")
+	//Append Imgs, do magic
+	doMagic = (index) => {
 		
-		dims = Math.floor(screen.height/5);
-	    for(let i=1; i<50; i++){
-		colors= (Math.floor(Math.random()*900000) + 100000);	
+		colors = (Math.floor(Math.random()*900000) + 100000);
 	    img = document.createElement("img");
-	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + i;
+	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + index;
 	    div.appendChild(img);
 	  	frag.appendChild(div);
      	document.body.appendChild(frag);
-		console.log(dims);
+	}
 
-	   }}
+	rhyhorn = () => {
+				
+		frag = document.createDocumentFragment();
+	    div = document.createElement("div");
+	    div.setAttribute("id", "container")
 
+		//Generate Sizes and Colors
+		boxSize = screen.height/5;
+		n = screen.width*0.021;
+		dims = Math.floor(boxSize);
+
+		for (i=1; i<n; i++) {	
+     		doMagic(i);
+		}
+
+		addImages = () => {
+			for (i=(Math.floor(Math.random()*9)+1); i<8; i++) {
+			doMagic(i);
+			}
+		}
+		//Hide button
 	    button.className="hidden";
-     	return checked = true;
 
-
- 
- }
+	}
 	
+	window.onscroll = () => {
+		addImages();
+	}  
 
-	 document.querySelector("button").addEventListener("click", rhyhorn);
-	
+	document.querySelector("button").addEventListener("click", rhyhorn);
 
-
-     })();
+})();
 
   
+// TO BE DONE
+//Get screen height. Check that it is less than container height. Add 20% of screen size

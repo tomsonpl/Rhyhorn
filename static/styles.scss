@@ -1,0 +1,39 @@
+body {
+	margin:0;
+	padding:0;
+	display:block;
+}
+
+
+
+#container {
+
+	display:flex; 
+	flex-direction: row;
+	flex-wrap:wrap;
+	justify-content: center;
+}
+
+#container {
+	img {
+	padding:2px;
+	}
+}
+button {
+	display:block;
+	background-color:white;
+	margin: 20% auto;
+	height:10em;
+	width:20em;
+	border:5px dotted black;
+}
+button:before {
+	content: "START";
+	font-size:4em;
+}
+
+
+
+.hidden {
+	display:none;
+}
