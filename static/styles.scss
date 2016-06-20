@@ -1,19 +1,13 @@
 body {
 	margin:0;
 	padding:0;
-	display:block;
 }
-
-
-
 #container {
-
 	display:flex; 
 	flex-direction: row;
 	flex-wrap:wrap;
 	justify-content: center;
 }
-
 #container {
 	img {
 	padding:2px;
@@ -31,8 +25,9 @@ button:before {
 	content: "START";
 	font-size:4em;
 }
-
-
+button:hover {
+	cursor:pointer;
+}
 
 .hidden {
 	display:none;

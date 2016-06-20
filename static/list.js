@@ -9,6 +9,7 @@
 		i,
 		n,
 		frag,
+		id,
 		img,
 		colors,
 		dims,
@@ -20,45 +21,44 @@
 	document.body.appendChild(button);
 	console.log(button);
 
+
 	//Append Imgs, do magic
-	doMagic = (index) => {
-		
+	doMagic = () => {
 		colors = (Math.floor(Math.random()*900000) + 100000);
+		id = (Math.floor(Math.random()*900) + 1);
 	    img = document.createElement("img");
-	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + index;
+	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + id;
 	    div.appendChild(img);
-	  	frag.appendChild(div);
+	    frag.appendChild(div);
      	document.body.appendChild(frag);
 	}
-
+	
 	rhyhorn = () => {
-				
+		
 		frag = document.createDocumentFragment();
 	    div = document.createElement("div");
 	    div.setAttribute("id", "container")
 
 		//Generate Sizes and Colors
 		boxSize = screen.height/5;
-		n = screen.width*0.021;
+		n = screen.width*0.02;
 		dims = Math.floor(boxSize);
 
-		for (i=1; i<n; i++) {	
+		for (i=1; i<n; i++) {
      		doMagic(i);
-		}
-
-		addImages = () => {
-			for (i=(Math.floor(Math.random()*9)+1); i<8; i++) {
-			doMagic(i);
-			}
 		}
 		//Hide button
 	    button.className="hidden";
 
 	}
 	
-	window.onscroll = () => {
-		addImages();
-	}  
+
+	window.onscroll = (event) => {
+		for (i=0; i<3; i++) {
+			console.log(i);
+			doMagic();
+		}
+	}
 
 	document.querySelector("button").addEventListener("click", rhyhorn);
 
