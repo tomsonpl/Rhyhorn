@@ -3,6 +3,7 @@ Dynamically fill the page with random images
 
 START:
 
-npm install
-gulp 
+1.npm install
+
+2.gulp 
 
