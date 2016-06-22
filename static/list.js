@@ -26,18 +26,18 @@
 	doMagic = () => {
 		colors = (Math.floor(Math.random()*900000) + 100000);
 		id = (Math.floor(Math.random()*900) + 1);
-	    img = document.createElement("img");
-	    img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + id;
-	    div.appendChild(img);
-	    frag.appendChild(div);
+	    	img = document.createElement("img");
+	  	img.src = "http://placeskull.com/" + dims + "/" + dims + "/" + colors + "/" + id;
+		 div.appendChild(img);
+		frag.appendChild(div);
      	document.body.appendChild(frag);
 	}
 	
 	rhyhorn = () => {
 		
 		frag = document.createDocumentFragment();
-	    div = document.createElement("div");
-	    div.setAttribute("id", "container")
+		 div = document.createElement("div");
+	    	div.setAttribute("id", "container")
 
 		//Generate Sizes and Colors
 		boxSize = screen.height/5;
@@ -48,7 +48,7 @@
      		doMagic(i);
 		}
 		//Hide button
-	    button.className="hidden";
+	    	button.className="hidden";
 
 	}
 	
