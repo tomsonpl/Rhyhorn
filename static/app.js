@@ -1,9 +1,8 @@
 "use strict";
 
-(function () {
-	let button,
-		rhyhorn,
-		doMagic,
+let myApp = (function (IFEE) {
+	
+	let	button,
 		addImages,
 		div,
 		i,
@@ -16,14 +15,11 @@
 		randNum,
 		boxSize;
 
-	button = document.createElement("button");
-	button.setAttribute("id", "clicker");
-	document.body.appendChild(button);
-	console.log(button);
+
 
 
 	//Append Imgs, do magic
-	doMagic = () => {
+	let doMagic = () => {
 		colors = (Math.floor(Math.random()*900000) + 100000);
 		id = (Math.floor(Math.random()*900) + 1);
 	    img = document.createElement("img");
@@ -31,9 +27,10 @@
 	    div.appendChild(img);
 	    frag.appendChild(div);
      	document.body.appendChild(frag);
+
 	}
 	
-	rhyhorn = () => {
+	let measure = () => {
 		
 		frag = document.createDocumentFragment();
 	    div = document.createElement("div");
@@ -52,18 +49,32 @@
 
 	}
 	
+	let init = () => {
+		button = document.createElement("button");
+		button.setAttribute("id", "clicker");
+		document.body.appendChild(button);
+		console.log(button);
 
-	window.onscroll = (event) => {
-		for (i=0; i<3; i++) {
-			console.log(i);
-			doMagic();
-		}
+		window.onscroll = (event) => {
+				for (i=0; i<3; i++) {
+					console.log(i);
+					doMagic();
+				}
+			}
+			document.querySelector("button").addEventListener("click", measure);
 	}
+			
 
-	document.querySelector("button").addEventListener("click", rhyhorn);
+return {
+		doMagic: doMagic,
+		measure: measure,
+		init: init,
+	}
 
 })();
 
-  
+
+	myApp.init();
+	  
 // TO BE DONE
 //Get screen height. Check that it is less than container height. Add 20% of screen size
